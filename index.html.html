@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> CARS FOR SALE </title>
+
+<style>
+@media (max-width: 768px) {
+  .cars {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  .car-card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+	body   {background-color: #101827;
+		color: white;
+		font-family: Arial;
+		text-align: center;
+		margin: 0;
+	}
+
+	header   {background-color: #087cff:
+		  padding: 25px;
+	}
+	
+	h1   {font-size: 40px;
+	}
+
+	main   {padding: 50px;
+	}
+
+	button   {background-color: #087cff
+		  color: white;
+		  border: none;
+		  padding: 15px 30px;
+  		  border-radius: 8px;
+		  cursor: pointer;
+	}
+	
+	footer   {padding: 20px
+		  background-color: #080FIC
+	}
+    </style>
+</head>
+
+<body>
+<span id="favCount" style="position:fixed; top:15px; right:15px; background:red; color:white; padding:8px 12px; border-radius:20px; z-index:999; font-weight:bold; display:none;">❤️ 0 Saved</span>
+<div style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200'); background-size:cover; background-position:center; color:white; text-align:center; padding:60px 20px; border-radius:0 0 20px 20px;">
+  <h1 style="font-size:32px; margin:0;">Find Your Dream Car</h1>
+  <p style="opacity:0.9;">Quality Cars • Pay on Inspection • Nationwide Delivery</p>
+  
+  <div style="background:white; padding:15px; border-radius:10px; max-width:800px; margin:20px auto 0; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+    <select id="filterBrand" onchange="filterCars()" style="padding:12px; border-radius:8px; border:1px solid #ddd; flex:1; min-width:130px;">
+      <option value="">All Brands</option>
+      <option value="toyota">Toyota</option>
+      <option value="benz">Benz</option>
+      <option value="honda">Honda</option>
+      <option value="lexus">Lexus</option>
+    </select>
+
+    <select id="filterPrice" onchange="filterCars()" style="padding:12px; border-radius:8px; border:1px solid #ddd; flex:1; min-width:130px;">
+      <option value="">Any Price</option>
+      <option value="0-5000000">Below ₦5M</option>
+      <option value="5000000-10000000">₦5M - ₦10M</option>
+      <option value="10000000-999999999">Above ₦10M</option>
+    </select>
+
+    <select id="filterYear" onchange="filterCars()" style="padding:12px; border-radius:8px; border:1px solid #ddd; flex:1; min-width:130px;">
+      <option value="">Any Year</option>
+      <option value="2019">2019+</option>
+      <option value="2020">2020+</option>
+      <option value="2021">2021+</option>
+    </select>
+  </div>
+</div>
+
+<h2 style="text-align:center; margin:30px 0 10px;">⭐ Featured Cars</h2>
+
+    <header>
+	<h1>THE WORLD OF CARS</h1>
+	<p>Trading cars online</p>
+	<nav>
+	  <a href="#">Home</a>
+	  <a href="#about">About</a>
+	  <a href="#services">Services</a>
+	</nav>
+    </header>
+
+    <main>
+	<h2>HELLO CAR LOVERS</h2>
+
+	<p>
+	   Welcome to car trade online.
+	   Created just for your comfort of getting your desired car at your affordable price
+	</p>
+	
+	<button onclick="alert('Welcome to the world of cars')">
+	   Click here
+	</button>
+    </main>
+<div class="hero">
+    <h2>Welcome to Car trade</h2>
+    <p>Whatever vehicle you need, we got you covered</p>
+    <button onclick="sayHello()">Click Me</button>
+    <p id="message" style="margin-top:15px; font-weight:bold;"></p>
+  </div>
+
+  <div class="section" id="about">
+    <h2>About Me</h2>
+    <p>Tired of always entering unkown platform in search of your suitable car?? well, you are in the right place cause here we dont just sell Cars we give you the comfort of choosing it to your style and all at an affordable price.</p>
+  </div>
+
+  <div class="section" id="services">
+    <h2>Services</h2>
+    <div class="cards">
+      <div class="card"><h3>Service 1</h3><p>We make sure the car is in good and instant driving conditions</p></div>
+      <div class="card"><h3>Service 2</h3><p>We ensure your desired car is at your desired price</p></div>
+      <div class="card"><h3>Service 3</h3><p>We provide Customer comfort in choosing</p></div>
+    </div>
+  </div>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CARS FOR SALE</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f2f2f2; color: #222; }
+    header { background: #111; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    header h1 { font-size: 28px; }
+    header h1 span { color: #ffcc00; }
+    nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; }
+    .hero { background: #222; color: #fff; padding: 60px 20px; text-align: center; }
+    .hero h2 { font-size: 38px; margin-bottom: 10px; }
+    .hero p { color: #ccc; margin-bottom: 25px; }
+    .search-box { background: white; padding: 15px; border-radius: 10px; max-width: 700px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .search-box select, .search-box input { padding: 12px; border: 1px solid #ddd; border-radius: 5px; flex: 1; min-width: 140px; }
+    .search-box button { background: #ffcc00; border: none; padding: 12px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; }
+    .section { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+    .section h2 { margin-bottom: 20px; font-size: 28px; }
+    .cars { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .car-card { background: white; width: 320px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .car-img { height: 180px; background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 50px; }
+    .car-info { padding: 20px; }
+    .car-info h3 { margin-bottom: 5px; }
+    .price { color: #111; font-size: 22px; font-weight: bold; margin: 10px 0; }
+    .price span { font-size: 14px; color: #777; font-weight: normal; }
+    .details { color: #666; font-size: 14px; margin-bottom: 15px; }
+    .btn { display: block; text-align: center; background: #111; color: white; text-decoration: none; padding: 12px; border-radius: 5px; font-weight: bold; }
+    .btn-yellow { background: #ffcc00; color: #111; }
+    .about { background: white; padding: 40px 20px; text-align: center; }
+    .about p { max-width: 700px; margin: 10px auto; color: #555; }
+    .sell-box { background: #111; color: white; padding: 40px 20px; text-align: center; border-radius: 10px; }
+    .sell-box input { padding: 12px; width: 280px; max-width: 90%; border-radius: 5px; border: none; margin: 5px; }
+    footer { background: #111; color: #aaa; text-align: center; padding: 20px; margin-top: 30px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Car<span>Trade</span></h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#cars">Buy Cars</a>
+      <a href="#sell">Sell Car</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Cars for trade</h2>
+    <p>Quality used and new cars. Trusted sellers. Best prices.</p>
+    <div class="search-box">
+      <select><option>All Brands</option><option>Toyota</option><option>Honda</option><option>Lexus</option><option>Mercedes</option><option>BMW</option></select>
+      <select><option>Any Price</option><option>Under ₦5,000,000</option><option>₦5m - ₦15m</option><option>₦15m+</option></select>
+      <button onclick="searchCars()">Search Cars</button>
+    </div>
+    <p id="searchResult" style="margin-top:15px; color:#ffcc00; font-weight:bold;"></p>
+  </div>
+
+  <div class="section" id="cars">
+    <h2>Featured Cars</h2>
+    <div class="cars">
+      <div class="car-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2021_Toyota_Camry_Hybrid_(XV70,_Europe,_2018)_1X7A6897.jpg?width=800" alt="Toyota Camry 2021" style="width:100%; height:220px; object-fit:cover; border-radius:12px;">
+        <div class="car-info">
+          <h3>Toyota Camry 2021</h3>
+          <p class="details">Automatic • Petrol • 45,000 km • Lagos</p>
+          <p class="price">₦18,500,000 <span>• Negotiable</span></p>
+          <a class="btn" href="#" onclick="viewCar('Toyota Camry 2021')">View Details</a>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=600" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
+        <div class="car-info">
+          <h3>Lexus RX 350 2019</h3>
+          <p class="details">Automatic • Petrol • 60,000 km • Abuja</p>
+          <p class="price">₦28,000,000 <span>• Negotiable</span></p>
+          <a class="btn" href="#" onclick="viewCar('Lexus RX 350 2019')">View Details</a>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/20_Honda_Accord_Sport.jpg?width=800" alt="Honda Accord 2020" style="width:100%; height:220px; object-fit:cover; border-radius:12px;">
+        <div class="car-info">
+          <h3>Honda Accord 2020</h3>
+          <p class="details">Automatic • Petrol • 38,000 km • Abuja</p>
+          <p class="price">₦15,750,000 <span>• Negotiable</span></p>
+          <a class="btn" href="#" onclick="viewCar('Honda Accord 2020')">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarTrade - Buy & Sell Cars</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f2f2f2; color: #222; }
+    header { background: #111; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    header h1 { font-size: 28px; }
+    header h1 span { color: #ffcc00; }
+    nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; }
+    .hero { background: #222; color: #fff; padding: 50px 20px; text-align: center; }
+    .hero h2 { font-size: 36px; margin-bottom: 10px; }
+    .hero p { color: #ccc; margin-bottom: 20px; }
+    .search-box { background: white; padding: 15px; border-radius: 10px; max-width: 700px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .search-box select, .search-box input { padding: 12px; border: 1px solid #ddd; border-radius: 5px; flex: 1; min-width: 140px; }
+    .search-box button { background: #ffcc00; border: none; padding: 12px 25px; font-weight: bold; border-radius: 5px; cursor: pointer; }
+    .section { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+    .section h2 { margin-bottom: 20px; font-size: 28px; }
+    .cars { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .car-card { background: white; width: 320px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .car-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+    .car-info { padding: 20px; }
+    .car-info h3 { margin-bottom: 5px; }
+    .price { font-size: 22px; font-weight: bold; margin: 10px 0; }
+    .details { color: #666; font-size: 14px; margin-bottom: 15px; }
+    .btn { display: block; text-align: center; background: #111; color: white; text-decoration: none; padding: 12px; border-radius: 5px; font-weight: bold; margin-bottom: 10px; }
+    .btn-whatsapp { display: block; text-align: center; background: #25D366; color: white; text-decoration: none; padding: 12px; border-radius: 5px; font-weight: bold; }
+    .about { background: white; padding: 40px 20px; text-align: center; }
+    .about p { max-width: 700px; margin: 10px auto; color: #555; }
+    .sell-box { background: #111; color: white; padding: 40px 20px; text-align: center; border-radius: 10px; }
+    .sell-box input { padding: 12px; width: 280px; max-width: 90%; border-radius: 5px; border: none; margin: 5px; }
+    footer { background: #111; color: #aaa; text-align: center; padding: 20px; margin-top: 30px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Car<span>Trade</span></h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#cars">Buy Cars</a>
+      <a href="#sell">Sell Car</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Cars for Trade</h2>
+    <p>Quality used and new cars. Trusted sellers. Best prices.</p>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search e.g. Camry, Lexus, Honda...">
+      <button onclick="searchCars()">Search Cars</button>
+    </div>
+    <p id="searchResult" style="margin-top:15px; color:#ffcc00; font-weight:bold;"></p>
+  </div>
+
+<input type="text" id="searchInput" placeholder="Search cars... e.g Corolla, Benz" onkeyup="searchCars()" style="width:100%; padding:15px; margin:20px 0; border-radius:8px; border:1px solid #ddd; font-size:16px;">
+  <div class="section" id="cars">
+    <h2>Featured Cars</h2>
+    <div class="cars" id="carsList">
+      <div class="car-card" data-name="Toyota Camry 2021" data-price="18500000" data-year="2021">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2021_Toyota_Camry_Hybrid_(XV70,_Europe,_2018)_1X7A6897.jpg?width=800" alt="Toyota Camry 2021" style="width:100%; height:220px; object-fit:cover; border-radius:12px;">
+        <div class="car-info">
+          <h3>Toyota Camry 2021</h3>
+          <p class="details">Automatic • Petrol • 45,000 km • Lagos</p>
+          <p class="price">₦18,500,000</p>
+          <a class="btn" href="#" onclick="viewCar('Toyota Camry 2021')">View Details</a>
+          <a class="btn-whatsapp" href="https://wa.me/2348089209537?text=Hi, I want to buy the Toyota Camry 2021" target="_blank">Chat on WhatsApp</a>
+	<button onclick="toggleFav(this, 'Toyota Camry 2019')">🤍 Save</button>
+	<button onclick="addToCompare('Toyota Camry 2021', 18500000, 2021)">⚖️ Compare</button>
+        </div>
+      </div>
+
+      <div class="car-card" data-name="lexus rx 350 2019" data-price="28000000" data-year="2019">
+        <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=600" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
+        <div class="car-info">
+          <h3>Lexus RX 350 2019</h3>
+          <p class="details">Automatic • Petrol • 60,000 km • Abuja</p>
+          <p class="price">₦28,000,000</p>
+          <a class="btn" href="#" onclick="viewCar('Lexus RX 350 2019')">View Details</a>
+          <a class="btn-whatsapp" href="https://wa.me/2348089209537?text=Hi, I want to buy the Lexus RX 350 2019" target="_blank">Chat on WhatsApp</a>
+	<button onclick="toggleFav(this, 'lexus rx 350 2019')">🤍 Save</button>
+	<button onclick="addToCompare('lexus rx 350 2019', 28000000, 2019)">⚖️ Compare</button>
+        </div>
+      </div>
+
+      <div class="car-card" data-name="honda accord 2020" data-price="15750000" data-year="2020">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/20_Honda_Accord_Sport.jpg?width=800" alt="Honda Accord 2020" style="width:100%; height:220px; object-fit:cover; border-radius:12px;">
+        <div class="car-info">
+          <h3>Honda Accord 2020</h3>
+          <p class="details">Automatic • Petrol • 38,000 km • Abuja</p>
+          <p class="price">₦15,750,000</p>
+          <a class="btn" href="#" onclick="viewCar('Honda Accord 2020')">View Details</a>
+          <a class="btn-whatsapp" href="https://wa.me/2348089209537?text=Hi, I want to buy the Honda Accord 2020" target="_blank">Chat on WhatsApp</a>
+	<button onclick="toggleFav(this, 'honda accord 2020')">🤍 Save</button>
+	<button onclick="addToCompare('Honda Accord 2020', 15750000, 2020)">⚖️ Compare</button>
+        </div>
+      </div>
+
+      <div class="car-card" data-name="toyota corolla 2019" data-price="12500000" data-year="2019">
+        <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
+        <div class="car-info">
+          <h3>Toyota Corolla 2019</h3>
+          <p class="details">Automatic • Petrol • 55,000 km • Lagos</p>
+          <p class="price">₦12,500,000</p>
+          <a class="btn" href="#" onclick="viewCar('Toyota Corolla 2019')">View Details</a>
+          <a class="btn-whatsapp" href="https://wa.me/2348089209537?text=Hi, I want to buy the Toyota Corolla 2019" target="_blank">Chat on WhatsApp</a>
+	<button onclick="toggleFav(this, 'Toyota Corolla 2019')">🤍 Save</button>
+	<button onclick="addToCompare('Toyota Corolla 2019', 12500000, 2019)">⚖️ Compare</button>
+        </div>
+      </div>
+
+      <div class="car-card" data-name="mercedes benz c300 2020" data-price="32000000" data-year="2020">
+        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80" alt="Mercedes Benz C300 2020" style="width:100%; height:220px; object-fit:cover; border-radius:12px;">
+        <div class="car-info">
+          <h3>Mercedes Benz C300 2020</h3>
+          <p class="details">Automatic • Petrol • 30,000 km • Abuja</p>
+          <p class="price">₦32,000,000</p>
+          <a class="btn" href="#" onclick="viewCar('Mercedes Benz C300 2020')">View Details</a>
+          <a class="btn-whatsapp" href="https://wa.me/2348089209537?text=Hi, I want to buy the Mercedes Benz C300 2020" target="_blank">Chat on WhatsApp</a>
+	<button onclick="toggleFav(this, 'mercedes benz c300 2020')">🤍 Save</button>
+	<button onclick="addToCompare('mercedes benz c300 2020', 32000000, 2020)">⚖️ Compare</button>
+        </div>
+      </div>
+
+      <div class="car-card" data-name="range rover sport 2018" data-price="45000000" data-year="2018">
+        <img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800&q=80" alt="Range Rover Sport 2018" style="width:100%; height:220px; object-fit:cover; border-radius:12px;">
+        <div class="car-info">
+          <h3>Range Rover Sport 2018</h3>
+          <p class="details">Automatic • Petrol • 70,000 km • Lagos</p>
+          <p class="price">₦45,000,000</p>
+          <a class="btn" href="#" onclick="viewCar('Range Rover Sport 2018')">View Details</a>
+          <a class="btn-whatsapp" href="https://wa.me/2348089209537?text=Hi, I want to buy the Range Rover Sport 2018" target="_blank">Chat on WhatsApp</a>
+	<button onclick="toggleFav(this, 'range rover sport 2018')">🤍 Save</button>
+	<button onclick="addToCompare('range rover sport 2018', 45000000, 2018)">⚖️ Compare</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+<script>
+function filterCars() {
+  let brand = document.getElementById('filterBrand').value.toLowerCase();
+  let priceRange = document.getElementById('filterPrice').value;
+  let yearFilter = document.getElementById('filterYear').value;
+  let search = document.getElementById('searchInput') ? document.getElementById('searchInput').value.toLowerCase() : "";
+
+  let cars = document.getElementsByClassName('car-card');
+  for (let i = 0; i < cars.length; i++) {
+    let name = cars[i].getAttribute('data-name').toLowerCase();
+    let price = parseInt(cars[i].getAttribute('data-price') || "0");
+    let year = parseInt(cars[i].getAttribute('data-year') || "0");
+
+    let show = true;
+    if (brand && !name.includes(brand)) show = false;
+    if (search && !name.includes(search)) show = false;
+    if (yearFilter && year < parseInt(yearFilter)) show = false;
+    if (priceRange) {
+      let parts = priceRange.split('-');
+      if (price < parseInt(parts[0]) || price > parseInt(parts[1])) show = false;
+    }
+    cars[i].style.display = show ? "" : "none";
+  }
+}
+function searchCars() { filterCars(); }
+</script>
+
+</body>
+</html>
+  <div class="about">
+    <h2>Why Buy From Car Trade?</h2>
+    <p>✓ Inspected Cars &nbsp; | &nbsp; ✓ Verified Sellers &nbsp; | &nbsp; ✓ Secure Payment &nbsp; | &nbsp; ✓ Nationwide Delivery</p>
+    <p>We help you buy and sell cars safely without stress. Every car is checked before it is listed.</p>
+  </div>
+
+  <div class="section" id="sell">
+    <div class="sell-box">
+      <h2>Want To Sell Your Car?</h2>
+      <p style="margin: 10px 0 20px; color:#ccc;">List your car for free and get buyers fast.</p>
+      <input type="text" id="carName" placeholder="e.g. Toyota Corolla 2018">
+      <input type="text" id="carPrice" placeholder="Your Price e.g. ₦8,000,000">
+      <br><br>
+      <button onclick="sellCar()" style="background:#ffcc00; border:none; padding:12px 30px; font-weight:bold; border-radius:5px; cursor:pointer;">List My Car</button>
+      <p id="sellResult" style="margin-top:15px; color:#ffcc00; font-weight:bold;"></p>
+    </div>
+  </div>
+
+
+  <script>
+    function searchCars() {
+      document.getElementById("searchResult").innerText = "Showing available cars that match your search...";
+    }
+    function viewCar(car) {
+      alert("You clicked on: " + car + "\n\nCall us to inspect and buy this car.");
+    }
+    function sellCar() {
+      var name = document.getElementById("carName").value;
+      var price = document.getElementById("carPrice").value;
+      if(name === "" || price === "") {
+        document.getElementById("sellResult").innerText = "Please enter your car name and price.";
+      } else {
+        document.getElementById("sellResult").innerText = "Thank you! Your " + name + " for " + price + " has been listed.";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+  <script>
+    function sayHello() {
+      document.getElementById("message").innerText = "Hello! Thanks for visiting my website.";
+    }
+  </script>
+<script>
+function searchCars() {
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  let cars = document.getElementsByClassName('car-card');
+
+  for (let i = 0; i < cars.length; i++) {
+    let name = cars[i].getAttribute('data-name');
+    if (name.includes(input)) {
+      cars[i].style.display = "";
+    } else {
+      cars[i].style.display = "none";
+    }
+  }
+}
+</script>
+<script>
+function viewCar(carName) {
+  // Find the car card that was clicked
+  let cards = document.getElementsByClassName('car-card');
+  for (let i = 0; i < cards.length; i++) {
+    let title = cards[i].querySelector('h3').innerText;
+    if (title === carName) {
+      let img = cards[i].querySelector('img').src;
+      let details = cards[i].querySelector('.details').innerText;
+      let price = cards[i].querySelector('.price').innerText;
+
+      document.getElementById('popupImg').src = img;
+      document.getElementById('popupTitle').innerText = title;
+      document.getElementById('popupDetails').innerText = details;
+      document.getElementById('popupPrice').innerText = price;
+      document.getElementById('popupWhatsapp').href = "https://wa.me/2348089209537?text=Hi, I want to buy the " + title;
+      
+      document.getElementById('carPopup').style.display = "flex";
+      break;
+    }
+  }
+}
+
+function closePopup() {
+  document.getElementById('carPopup').style.display = "none";
+}
+</script>
+<div id="carPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center;">
+  <div style="background:white; width:90%; max-width:400px; border-radius:10px; padding:20px; position:relative;">
+    <span onclick="closePopup()" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;">&times;</span>
+    <img id="popupImg" src="" style="width:100%; border-radius:8px;">
+    <h2 id="popupTitle"></h2>
+    <p id="popupDetails"></p>
+    <h3 id="popupPrice" style="color:green;"></h3>
+    <a id="popupWhatsapp" href="#" target="_blank" style="display:block; text-align:center; background:#25D366; color:white; text-decoration:none; padding:12px; border-radius:5px; font-weight:bold; margin-top:10px;">Chat on WhatsApp</a>
+  </div>
+</div>
+<script>
+let favs = [];
+let compareList = [];
+
+function toggleFav(btn, name) {
+  if (favs.includes(name)) {
+    favs = favs.filter(n => n !== name);
+    btn.innerHTML = "🤍 Save";
+    btn.style.background = "none";
+  } else {
+    favs.push(name);
+    btn.innerHTML = "❤️ Saved";
+    btn.style.background = "#ffe0e0";
+  }
+  let count = document.getElementById('favCount');
+  count.style.display = favs.length > 0 ? "block" : "none";
+  count.innerHTML = "❤️ " + favs.length + " Saved";
+  if (favs.length > 0) alert(name + " saved to favourites!");
+}
+
+function addToCompare(name, price, year) {
+  if (compareList.length >= 2) { alert("You can only compare 2 cars. Clear first."); return; }
+  compareList.push({name, price, year});
+  alert(name + " added to compare. (" + compareList.length + "/2)");
+  if (compareList.length == 2) showCompare();
+}
+
+function showCompare() {
+  let c1 = compareList[0], c2 = compareList[1];
+  let winner = c1.price < c2.price ? c1.name : c2.name;
+  document.body.insertAdjacentHTML('beforeend', `
+    <div id="compareBox" style="position:fixed; bottom:0; left:0; right:0; background:white; padding:20px; box-shadow:0 -5px 20px rgba(0,0,0,0.2); z-index:1000; text-align:center;">
+      <h3>⚖️ Compare Result</h3>
+      <p><b>${c1.name}</b> - ₦${c1.price} - ${c1.year} | VS | <b>${c2.name}</b> - ₦${c2.price} - ${c2.year}</p>
+      <p style="color:green; font-weight:bold;">Cheaper: ${winner}</p>
+      <button onclick="document.getElementById('compareBox').remove(); compareList=[];" style="padding:10px 20px; background:black; color:white; border-radius:8px;">Close</button>
+    </div>
+  `);
+}
+</script>
+<div style="max-width:500px; margin:40px auto; background:#f8f8f8; padding:20px; border-radius:15px; text-align:center;">
+  <h3>💰 Loan Calculator</h3>
+  <input id="carPrice2" type="number" placeholder="Car Price e.g 6500000" style="width:90%; padding:12px; margin:5px; border-radius:8px;">
+  <input id="downPayment2" type="number" placeholder="Down Payment e.g 2000000" style="width:90%; padding:12px; margin:5px; border-radius:8px;">
+  <select id="months2" style="width:90%; padding:12px; margin:5px; border-radius:8px;">
+    <option value="12">12 Months</option>
+    <option value="24">24 Months</option>
+    <option value="36">36 Months</option>
+  </select>
+  <button onclick="calcLoan2()" style="width:90%; padding:12px; background:black; color:white; border-radius:8px;">Calculate</button>
+  <h3 id="loanResult2" style="color:green;"></h3>
+</div>
+
+<script>
+function calcLoan2() {
+  let price = Number(document.getElementById('carPrice2').value);
+  let down = Number(document.getElementById('downPayment2').value);
+  let months = Number(document.getElementById('months2').value);
+  if (!price) { alert("Enter car price first"); return; }
+  let monthly = Math.ceil((price - down) / months);
+  document.getElementById('loanResult2').innerHTML = "You will pay ₦" + monthly.toLocaleString() + " / month";
+}
+</script>
+
+  <div class="section" id="contact" style="text-align:center;">
+    <h2>Contact Us</h2>
+    <p>Phone: +234 8089209537</p>
+    <p>Email: oyinslongson@gmail.com</p>
+    <p>Location: Bayelsa, Nigeria</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Cars are all we trade . All rights reserved.</p>
+  </footer>
+<div id="chatBtn" onclick="document.getElementById('chatBox').style.display='block'; document.getElementById('chatBtn').style.display='none';" style="position:fixed; bottom:20px; right:20px; background:black; color:white; padding:15px 20px; border-radius:50px; cursor:pointer; z-index:2000;">💬 Ask AutoBot</div>
+
+<div id="chatBox" style="display:none; position:fixed; bottom:20px; right:20px; width:320px; background:white; border-radius:15px; box-shadow:0 5px 30px rgba(0,0,0,0.3); z-index:2000; overflow:hidden;">
+  <div style="background:black; color:white; padding:15px; display:flex; justify-content:space-between;">
+    <b>🤖 AutoBot - Car Trade</b>
+    <span onclick="document.getElementById('chatBox').style.display='none'; document.getElementById('chatBtn').style.display='block';" style="cursor:pointer;">X</span>
+  </div>
+  <div id="chatMsgs" style="height:250px; overflow-y:auto; padding:10px; font-size:14px;">
+    <p style="background:#eee; padding:8px; border-radius:10px;">Hi! Ask me about price, cheapest car, or loan. Try "cheapest car" or "show me Toyota"</p>
+  </div>
+  <div style="display:flex; padding:10px;">
+    <input id="chatInput" placeholder="Type here..." style="flex:1; padding:10px; border:1px solid #ddd; border-radius:20px;">
+    <button onclick="sendChat()" style="background:black; color:white; border:none; padding:10px 15px; border-radius:20px; margin-left:5px;">Send</button>
+  </div>
+</div>
+
+<script>
+function getAllCars() {
+  let cars = [];
+  document.querySelectorAll('.car-card').forEach(card => {
+    let name = card.querySelector('h3') ? card.querySelector('h3').innerText : card.getAttribute('data-name');
+    let priceText = card.innerText.match(/₦[\d,]+/) ? card.innerText.match(/₦[\d,]+/)[0] : "";
+    let price = parseInt(card.getAttribute('data-price') || priceText.replace(/[^0-9]/g,'') || 0);
+    cars.push({name: name, price: price});
+  });
+  return cars;
+}
+
+function sendChat() {
+  let input = document.getElementById('chatInput');
+  let raw = input.value.trim();
+  let msg = raw.toLowerCase();
+  if (!msg) return;
+  let box = document.getElementById('chatMsgs');
+  box.innerHTML += `<p style="text-align:right;"><span style="background:black; color:white; padding:8px; border-radius:10px; display:inline-block;">${raw}</span></p>`;
+  
+  let cars = getAllCars();
+  let reply = "";
+  
+  // 1. LIST ALL CARS
+  if (msg.includes('list') || msg.includes('all cars') || msg.includes('show all') || msg.includes('what cars')) {
+    reply = "We have " + cars.length + " cars:<br>";
+    cars.forEach(c => { reply += "• " + c.name + " - ₦" + c.price.toLocaleString() + "<br>"; });
+    reply += "Which one do you want details on?";
+  }
+  // 2. CHEAPEST / EXPENSIVE
+  else if (msg.includes('cheap')) {
+    let cheap = cars.sort((a,b)=>a.price-b.price)[0];
+    reply = `Cheapest is ${cheap.name} - ₦${cheap.price.toLocaleString()}. Perfect for Present roads, low fuel! Want to calculate loan for it?`;
+  }
+  else if (msg.includes('expensive') || msg.includes('luxury') || msg.includes('premium')) {
+    let exp = cars.sort((a,b)=>b.price-a.price)[0];
+    reply = `Our premium is ${exp.name} - ₦${exp.price.toLocaleString()}. Luxury + strong for Nigerian roads.`;
+  }
+  // 3. SEARCH BY BRAND / NAME - e.g "Toyota", "Corolla", "Lexus"
+  else if (cars.some(c => msg.includes(c.name.split(' ')[0].toLowerCase()) || msg.includes(c.name.toLowerCase()))) {
+    let found = cars.filter(c => msg.includes(c.name.split(' ')[0].toLowerCase()) || c.name.toLowerCase().includes(msg));
+    // also try matching any word
+    if (found.length === 0) found = cars.filter(c => c.name.toLowerCase().includes(msg));
+    if (found.length > 0) {
+      reply = "Yes we have:<br>";
+      found.forEach(c => reply += `• ${c.name} - ₦${c.price.toLocaleString()}<br>`);
+      reply += "Want loan calculation? Type e.g 'loan for Corolla'";
+    } else reply = "We don't have that one, but type 'list all' to see what we have.";
+  }
+  // 4. PRICE / BUDGET - e.g "under 20m", "below 15 million", "my budget is 13m"
+  else if (msg.includes('under') || msg.includes('below') || msg.includes('budget') || msg.includes('million') || msg.includes('m')) {
+    let num = parseInt(msg.replace(/[^0-9]/g,'')) || 0;
+    if (msg.includes('million') || msg.includes('m')) num = num * 1000000;
+    if (num > 1000 && num < 100000) num = num * 1000000; // if user typed "13" mean 13m
+    if (num > 0) {
+      let fits = cars.filter(c => c.price <= num);
+      if (fits.length > 0) {
+        reply = `For ₦${num.toLocaleString()} budget, you can get:<br>`;
+        fits.forEach(c => reply += `• ${c.name} - ₦${c.price.toLocaleString()}<br>`);
+      } else reply = `No car under ₦${num.toLocaleString()} yet. Our cheapest is ₦${Math.min(...cars.map(c=>c.price)).toLocaleString()}. Type 'loan' to pay small small.`;
+    } else reply = "Tell me your budget like 'under 20m' and I will find cars for you.";
+  }
+  // 5. LOAN
+  else if (msg.includes('loan') || msg.includes('installment') || msg.includes('monthly') || msg.includes('pay small')) {
+    reply = "Yes! We do installment. Use Loan Calculator on the page. Example: ₦12.5M car, ₦2M down, 24 months = ₦437,500/month. Type 'loan for Corolla' and I calculate for you.";
+    // loan for specific car
+    let target = cars.find(c => msg.includes(c.name.split(' ')[0].toLowerCase()) || msg.includes(c.name.toLowerCase()));
+    if (target) {
+      let monthly = Math.ceil(target.price / 24);
+      reply = `${target.name} is ₦${target.price.toLocaleString()}. If you pay 24 months with no down, it's ₦${monthly.toLocaleString()}/month. With ₦2M down, it's ₦${Math.ceil((target.price-2000000)/24).toLocaleString()}/month.`;
+    }
+  }
+  // 6. COMPARE / FAVOURITE / FILTER HELP
+  else if (msg.includes('compare')) reply = "Click ⚖️ Compare on any 2 cars, then click 'Compare Cars' button at top to see them side by side.";
+  else if (msg.includes('save') || msg.includes('favourite') || msg.includes('favorite')) reply = "Click 🤍 Save on any car to save it. Click 'Show Favourites' at top to see saved cars.";
+  else if (msg.includes('filter') || msg.includes('search')) reply = "Use the search bar at top. Type name or max price to filter instantly.";
+  // 7. LOCATION / INSPECTION / CONTACT
+  else if (msg.includes('where') || msg.includes('location') || msg.includes('address') || msg.includes('yenagoa')) reply = "We are in yenagoa, Bayelsa State. You can come for inspection anytime. Call / WhatsApp us to book.";
+  else if (msg.includes('inspection') || msg.includes('see') || msg.includes('test drive')) reply = "Yes, inspection is free in yenagoa. Tell us which car and when you want to come.";
+  else if (msg.includes('whatsapp') || msg.includes('contact') || msg.includes('number') || msg.includes('call')) reply = "Chat us on WhatsApp with the Buy button on any car, or tell me which car you want and I will guide you.";
+  // 8. GREETING / THANKS / DEFAULT
+  else if (msg.includes('hi') || msg.includes('hello') || msg.includes('good')) reply = "Hello! Welcome to Car Trade. Type 'list all', 'cheapest', 'under 20m', or a brand like 'Toyota'. What are you looking for?";
+  else if (msg.includes('thank')) reply = "You are welcome! Need anything else? Type 'list all' to see all cars.";
+  else {
+    reply = `I can help with:<br>• 'list all' - see all cars<br>• 'cheapest' / 'expensive'<br>• 'Toyota' / 'Lexus' - search brand<br>• 'under 20m' - budget search<br>• 'loan for Corolla' - monthly payment<br>• 'location' / 'compare' / 'save'<br>Try one!`;
+  }
+
+  box.innerHTML += `<p><span style="background:#eee; padding:8px; border-radius:10px; display:inline-block;">🤖 ${reply}</span></p>`;
+  input.value = "";
+  box.scrollTop = box.scrollHeight;
+}
+
+// Enter key to send
+document.getElementById('chatInput').addEventListener('keypress', function(e){ if(e.key==='Enter') sendChat(); });
+</script>
+
+</body>
+</html>
+
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
